@@ -36,6 +36,11 @@ main{
     background-position: left -5rem bottom;
     background-size: contain;
     max-width: 45rem;
+    display: none;
+}
+
+.card:nth-child(1){
+    display: flex;
 }
 
 .card-image{

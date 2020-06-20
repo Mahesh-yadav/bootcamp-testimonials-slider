@@ -28,6 +28,7 @@ main{
     border: .1rem solid hsl(240, 18%, 77%);
     border-radius: .3rem;
     box-shadow: .2rem .2rem 1rem hsl(240, 18%, 77%);
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 0 2rem 8rem 2rem;
@@ -35,12 +36,44 @@ main{
     background-repeat: no-repeat;
     background-position: left -5rem bottom;
     background-size: contain;
-    max-width: 45rem;
-    display: none;
+    width: 35rem;
+    position: relative;
+    left: -100%;
 }
 
-.card:nth-child(1){
+@keyframes slide-left-in{
+    0%{
+        left: -100%;
+        opacity: 0;
+    }
+    100%{
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-right-in{
+    0%{
+        left: 200%;
+        opacity: 0;
+    }
+    100%{
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.anim-right-in{
+    animation: slide-right-in .5s;
+}
+
+.anim-left-in{
+    animation: slide-left-in .5s;
+}
+
+.active{
     display: flex;
+    left: 0;
 }
 
 .card-image{
@@ -91,7 +124,7 @@ main{
 
 .slide-controls{
     position: absolute;
-    top: 34rem;
+    top: 33rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -121,7 +154,7 @@ main{
     .card{
         flex-direction: row;
         background-size: 50%;
-        max-width: 90%;
+        width: 110rem;
     }
     .card-image{
         background-position-y: 2rem;
@@ -134,8 +167,8 @@ main{
     }
     
     .slide-controls{
-        left: 61%;
-        top: 51rem;
+        left: 60%;
+        top: 52rem;
     }
     .card-content{
         text-align: left;

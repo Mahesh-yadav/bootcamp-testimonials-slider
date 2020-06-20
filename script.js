@@ -16,8 +16,10 @@ function getPrevIndex(currentIndex){
 prevBtn.addEventListener('click', () => {
     const prevImageIndex = getPrevIndex(currentImageIndex);
 
-    slides[currentImageIndex].style.display = 'none';
-    slides[prevImageIndex].style.display = 'flex';
+    slides[currentImageIndex].classList.toggle('active');
+    slides[currentImageIndex].classList.remove('anim-right-in', 'anim-left-in');
+    slides[prevImageIndex].classList.toggle('active');
+    slides[prevImageIndex].classList.add('anim-right-in');
 
     currentImageIndex = prevImageIndex;
 });
@@ -25,8 +27,10 @@ prevBtn.addEventListener('click', () => {
 nextBtn.addEventListener('click', () => {
     const nextImageIndex = getNextIndex(currentImageIndex);
     
-    slides[currentImageIndex].style.display = 'none';
-    slides[nextImageIndex].style.display = 'flex';
+    slides[currentImageIndex].classList.toggle('active');
+    slides[currentImageIndex].classList.remove('anim-right-in', 'anim-left-in');
+    slides[nextImageIndex].classList.toggle('active');
+    slides[nextImageIndex].classList.add('anim-left-in');
 
     currentImageIndex = nextImageIndex;
 });
